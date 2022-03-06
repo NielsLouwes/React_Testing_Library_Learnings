@@ -7,7 +7,6 @@ export default function Header({
     return (
         <>
           <h1 className="header" data-testid="header-2">{title}</h1>
-          <h3 title="Header" className="header">Cats</h3>
         </>
 
     )
