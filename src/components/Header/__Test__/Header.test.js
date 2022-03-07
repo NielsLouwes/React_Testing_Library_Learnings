@@ -4,11 +4,15 @@ import Header from '../Header';
 //two methods to render the header
 // 1. one of by text of the header
 // 2. 2nd is by accessing its role 'heading"
-it('renders the title passsed into Header with props', () => {
-  render(<Header title="My header"/>);
-  const headingElement = screen.getByText(/my header/i);
-  expect(headingElement).toBeInTheDocument();
-});
+
+describe("Header", () => {
+  it('renders the title passsed into Header with props', () => {
+    render(<Header title="My header"/>);
+    const headingElement = screen.getByText(/my header/i);
+    expect(headingElement).toBeInTheDocument();
+  });
+})
+
 
 // //testing the h1 header "My header"
 // it('renders the title passsed by role', () => {
