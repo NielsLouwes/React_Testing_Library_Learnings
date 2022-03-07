@@ -1,10 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Header from '../Header';
 
-//two methods to render the header
-// 1. one of by text of the header
-// 2. 2nd is by accessing its role 'heading"
-
 describe("Header", () => {
   it('renders the title passsed into Header with props', () => {
     render(<Header title="My header"/>);
@@ -13,6 +9,9 @@ describe("Header", () => {
   });
 })
 
+//two methods to render the header
+// 1. one of by text of the header
+// 2. 2nd is by accessing its role 'heading"
 
 // //testing the h1 header "My header"
 // it('renders the title passsed by role', () => {
