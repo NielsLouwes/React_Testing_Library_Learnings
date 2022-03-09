@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import TodoFooter from '../TodoFooter';
 import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const MockToDoFooter = ({numberOfIncompleteTasks}) => {
     return (
@@ -10,25 +11,39 @@ const MockToDoFooter = ({numberOfIncompleteTasks}) => {
     ) 
   }
 describe("ToDofooter", () => {
-  it('should render multiple amount of incomplete tasks', () => {
-    render(
-      <MockToDoFooter
-          numberOfIncompleteTasks={5} 
-      />
-    );
-    const paragraphElement = screen.getByText(/5 tasks left/i);
-    expect(paragraphElement).toBeInTheDocument();
-  });
+  describe('task element', () => {
+    it('should render multiple amount of incomplete tasks', () => {
+        render(
+          <MockToDoFooter
+              numberOfIncompleteTasks={5} 
+          />
+        );
+        const paragraphElement = screen.getByText(/5 tasks left/i);
+        expect(paragraphElement).toBeInTheDocument();
+      });
 
-  it('should one incomplete task', () => {
-    render(
-      <MockToDoFooter
-          numberOfIncompleteTasks={1} 
-      />
-    );
-    const paragraphElement = screen.getByText(/1 task left/i);
-    expect(paragraphElement).toBeInTheDocument();
-  });
+      it('should one incomplete task', () => {
+        render(
+          <MockToDoFooter
+              numberOfIncompleteTasks={1} 
+          />
+        );
+        const paragraphElement = screen.getByText(/1 task left/i);
+        expect(paragraphElement).toBeInTheDocument();
+      });
+      })
+
+    describe('follower footer element', () => {
+      it('should render the link component showing followers' , () => {
+        render(<MockToDoFooter />)
+
+        const followerLinkElement = screen.getByRole("link", {name: /Followers/i})
+
+        expect(followerLinkElement).toBeInTheDocument();
+        screen.debug();
+      })
+      
+    })
 })
 
 
