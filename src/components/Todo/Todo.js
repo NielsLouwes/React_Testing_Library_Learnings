@@ -19,6 +19,7 @@ function Todo() {
                 todos={todos}
                 setTodos={setTodos}
             />
+            
         </div>
     )
 }

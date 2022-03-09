@@ -11,6 +11,8 @@ const MockToDo = () => {
     )
 }
 
+//addTask function makes it so we don't have to repeat inputting information and clicking "add" button 3x or more if needed.
+//Pass the tasks in in an array as parameter and it for a forEach loop for each task.
 const addTask = (tasks) => {
   const inputElement = screen.getByPlaceholderText(/Add a new task here.../i)
   const buttonElement = screen.getByRole('button', { name: /Add/i});
@@ -21,14 +23,14 @@ const addTask = (tasks) => {
 }
 
 describe("Todo", () => {
-  // it('information entered input element shows up in task list after pressing add button', () => {
-  //   render(<MockToDo />);
-  //   addTask("Go grocery shopping")
+  it('information entered input element shows up in task list after pressing add button', () => {
+    render(<MockToDo />);
+    addTask(["Go grocery shopping"])
 
-  //   const divElement = screen.getByText(/Go grocery shopping/i)
+    const divElement = screen.getByText(/Go grocery shopping/i)
 
-  //   expect(divElement).toBeInTheDocument();
-  // });
+    expect(divElement).toBeInTheDocument();
+  });
 
   it('when three tasks are entered as input, should render multiple todo div items', () => {
     render(<MockToDo />);
