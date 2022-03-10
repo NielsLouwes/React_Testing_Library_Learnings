@@ -11,6 +11,25 @@ const MockFollowerList = () => {
 }
 
 describe("FollowerList", () => {
+
+  beforeEach(() => {
+    console.log("RUNNING BEFORE EACH TEST")
+    //can be used for for functionalities in common in many tests
+  })
+
+  beforeAll(() => {
+    console.log("RUNNING ONCE BEFORE ALL TESTS")
+  })
+
+  afterEach(() => {
+    console.log("RUNNING AFTER EACH TEST")
+  })
+
+   afterAll(() => {
+    console.log("RUNNING ONCE AFTER ALL TESTS HAVE RAN")
+    //used for cleanup after all tests are run
+  })
+
   it('renders one follower card', async () => {
     render(<MockFollowerList/>);
 
